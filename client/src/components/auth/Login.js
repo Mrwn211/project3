@@ -1,5 +1,4 @@
 import React from "react";
-import "bulma/css/bulma.css";
 
 import AuthService from "./auth-service.js";
 import { Link } from "react-router-dom";
@@ -29,48 +28,48 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div classname="hero is-success is-fullheight">
-        <div classname="hero-body">
-          <div classname="container has-text-centered">
-            <div classname="column is-4 is-offset-4">
-              <h3 classname="title has-text-grey">Login</h3>
-              <p classname="subtitle has-text-grey">Please login to proceed.</p>
-              <div classname="box">
-                <div classname="avatar">
+      <div className="hero is-success is-fullheight">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <div className="column is-4 is-offset-4">
+              <h3 className="title has-text-grey">Login</h3>
+              <p className="subtitle has-text-grey">Please login to proceed.</p>
+              <div className="box">
+                <div className="avatar">
                   <img src="https://placehold.it/128x128" />
                 </div>
                 <form>
-                  <div classname="field">
-                    <div classname="control">
+                  <div className="field">
+                    <div className="control">
                       <input
-                        classname="input is-large"
+                        className="input is-large"
                         type="email"
                         placeholder="Your Email"
-                        autofocus
+                        autoFocus
                       />
                     </div>
                   </div>
-                  <div classname="field">
-                    <div classname="control">
+                  <div className="field">
+                    <div className="control">
                       <input
-                        classname="input is-large"
+                        className="input is-large"
                         type="password"
                         placeholder="Your Password"
                       />
                     </div>
                   </div>
-                  <div classname="field">
-                    <label classname="checkbox">
+                  <div className="field">
+                    <label className="checkbox">
                       <input type="checkbox" />
                       Remember me
                     </label>
                   </div>
-                  <button classname="button is-block is-info is-large is-fullwidth">
+                  <button className="button is-block is-info is-large is-fullwidth">
                     Login
                   </button>
                 </form>
               </div>
-              <p classname="has-text-grey">
+              <p className="has-text-grey">
                 <a href="../">Sign Up</a> &nbsp;·&nbsp;
                 <a href="../">Forgot Password</a> &nbsp;·&nbsp;
                 <a href="../">Need Help?</a>

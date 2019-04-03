@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.scss";
-import "bulma/css/bulma.css";
 
 import { Link, Switch, Route } from "react-router-dom";
 
