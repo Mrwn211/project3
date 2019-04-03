@@ -1,76 +1,22 @@
-body {background-color:#d3e7d3;}
-
-.App {
-  min-height:100vh;
-  display:flex; align-items:center; justify-content:center;
+body {
+  background-color: #d3e7d3;
 }
 
 input,
-button {font:inherit;}
+button {
+  font: inherit;
+}
 
 form {
   label em {
-    font-style:normal;
-    display:block;
+    font-style: normal;
+    display: block;
   }
 }
 
-h1 {color:#648166;}
-
-/*
-                    _       
-                   (_)      
-  _ __   ___  _ __  _ _ __  
- | '_ \ / _ \| '_ \| | '_ \ 
- | |_) | (_) | |_) | | | | |
- | .__/ \___/| .__/|_|_| |_|
- | |         | |            
- |_|         |_|            
-*/
-
-.popin {
-  background:white; box-shadow:0 0 .5em rgba(0,0,0,.125);
-  display:flex; width:45em; min-height:30em;
-
-  border-radius:0.25em;overflow:hidden;
-
-  &__one,
-  &__two {width:50%;}
-
-  &__two {
-    background:#c0e3be url("/arc.svg") left center no-repeat /5% 110%;
-  }
-
-  // padding
-  &__one,
-  &__two {padding:3em;}
+h1 {
+  color: #648166;
 }
-
-/*
-  _     _         
- | |   | |        
- | |__ | |_ _ __  
- | '_ \| __| '_ \ 
- | |_) | |_| | | |
- |_.__/ \__|_| |_|
-*/
-
-.btn {
-  display:inline-block;
-  background:#c0e3be;
-  padding:.85em 4em;
-  border-radius:.25em;
-  font-weight:bold;
-  font-size:80%;
-  text-align:center;
-  cursor:pointer;
-}
-button.btn {
-  border:inherit;
-}
-a.btn {text-decoration:none; color:inherit;}
-
-.popin .btn {display:block; width:100%;}
 
 /*
   _                          
@@ -82,31 +28,6 @@ a.btn {text-decoration:none; color:inherit;}
 */
 
 [data-route="/"] {
-  .popin__one {
-    display:flex; flex-direction:column;
-    .cta {margin-top:auto; margin-bottom:0;}
-  }
-
-  p em {font-style:normal; color:gray;}
-  p em +span {display:block; font-size:150%;}
-
-  .btn.logout {background-color:transparent;color:red;}
-
-  .btn +.btn {margin-top:1em;}
-
-  img.avatar {
-    display:block; width:13em;height:13em;border-radius:100%; object-fit:contain; margin:0 auto;
-    background:#e1e1e1;
-    margin-bottom:1em;
-  }
-
-  .popin__two {
-    display:flex; flex-direction:column;
-    p:last-child {
-      margin-top:auto; margin-bottom:0;
-      color:gray;
-    }
-  }
 }
 
 /*
@@ -120,21 +41,78 @@ a.btn {text-decoration:none; color:inherit;}
           |___/                   |___/            |_|    
 */
 
-[data-route="/login"],
 [data-route="/signup"] {
-  .btn {background-color:#ffffff;}
-
-  .popin__one h1 {margin-top:0;}
-
-  .popin__two {
-    display:flex; flex-direction:column;
-    p:last-child {margin-top:auto; margin-bottom:0;}
-
-    p:first-child {margin-top:0;}
+  .btn {
+    background-color: #ffffff;
   }
 
-  .popin__two strong {display:block; font-size:150%;}
+  .popin__one h1 {
+    margin-top: 0;
+  }
 
-  p small {color:gray;}
-  p small +.btn {margin-top:1em;}
+  .popin__two {
+    display: flex;
+    flex-direction: column;
+    p:last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .popin__two strong {
+    display: block;
+    font-size: 150%;
+  }
+
+  p small {
+    color: gray;
+  }
+  p small + .btn {
+    margin-top: 1em;
+  }
+}
+
+[data-route="/login"] {
+  html,
+  body {
+    font-family: "Open Sans", serif;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .hero.is-success {
+    background: #f2f6fa;
+  }
+  .hero .nav,
+  .hero.is-success .nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .box {
+    margin-top: 5rem;
+  }
+  .avatar {
+    margin-top: -70px;
+    padding-bottom: 20px;
+  }
+  .avatar img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1),
+      0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  }
+  input {
+    font-weight: 300;
+  }
+  p {
+    font-weight: 700;
+  }
+  p.subtitle {
+    padding-top: 1rem;
+  }
 }
