@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-4.6.1.tgz",
     "axios": "^0.18.0",
     "bulma": "^0.7.4",
     "node-sass": "^4.11.0",
