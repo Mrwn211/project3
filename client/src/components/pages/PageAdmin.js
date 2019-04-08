@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import KidCard from "../KidCard.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FormDay from "../FormDay.js";
+import { Link } from "react-router-dom";
+
+import KidCard from "../KidCard.js";
+import AddKid from "../AddKid.js";
+import NavBar from "../NavBar.js";
 
 class PageAdmin extends Component {
   state = {
@@ -14,11 +17,12 @@ class PageAdmin extends Component {
     });
   };
 
-  closeModal = event => {
-    this.setState({
-      showModal: false
-    });
-  };
+  // closeModal = event => {
+  //   this.setState({
+  //     showModal: false
+  //   });
+  //   console.log("J'imprime les states du parent ", this.state);
+  // };
 
   render() {
     return (
@@ -29,12 +33,13 @@ class PageAdmin extends Component {
 
         <div className={"button button-cta"}>
           <div onClick={this.toggleModal}>
-            <FontAwesomeIcon icon="plus-circle" />
-            Add a kid
+            <Link />
+            <FontAwesomeIcon icon="plus-circle" /> Add a kid
+            {/* <Link to="/addkid">Add a kid</Link> */}
+            <AddKid showModal={this.state.showModal} />
+            <NavBar />
           </div>
         </div>
-
-        <FormDay showModal={this.state.showModal} onEvent={this.closeModal} />
       </div>
     );
   }

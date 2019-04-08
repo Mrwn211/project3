@@ -27,7 +27,10 @@ h1 {
  |_| |_|\___/|_| |_| |_|\___|
 */
 
-[data-route="/"] {
+[data-route="/login"] {
+  body {
+    background-image: url(../src/14888.jpg);
+  }
 }
 
 /*
@@ -114,5 +117,15 @@ h1 {
   }
   p.subtitle {
     padding-top: 1rem;
+  }
+}
+
+[data-route="/addkid"] {
+  body {
+    background-image: url(../src/14888.jpg);
+  }
+
+  .label {
+    color: blue;
   }
 }
