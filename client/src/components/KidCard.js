@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class KidCard extends Component {
   render() {
@@ -21,9 +22,9 @@ class KidCard extends Component {
                   <p>
                     <span className="title is-6">Age : 2 ans</span>
                   </p>
-                  <button class="button is-info is-rounded">
+                  <Link className="button is-info is-rounded" to="/fill-day">
                     Fill the day
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

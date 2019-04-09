@@ -5,7 +5,7 @@ import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 
 import "./App.scss";
-import "bulma/css/bulma.css";
+import "bulma-calendar/dist/css/bulma-calendar.min.css";
 
 import Signup from "./components/auth/Signup.js";
 import Login from "./components/auth/Login.js";
@@ -23,12 +23,13 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faPlusCircle,
   faUser,
-  faEnvelope
+  faEnvelope,
+  faUpload
 } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "./components/NavBar";
 import PageChooseKid from "./components/pages/PageChooseKid";
 
-library.add(faPlusCircle, faUser, faEnvelope);
+library.add(faPlusCircle, faUser, faEnvelope, faUpload);
 
 class App extends Component {
   state = {
@@ -66,7 +67,7 @@ class App extends Component {
               <Route path="/admin" render={() => <PageAdmin />} />
               <Route path="/addkid" render={() => <AddKid />} />
               <Route path="/choose-kid" render={() => <PageChooseKid />} />
-              <Route path="/date" render={() => <FillDay />} />
+              <Route path="/fill-day" render={() => <FillDay />} />
             </Switch>
           </div>
         )}

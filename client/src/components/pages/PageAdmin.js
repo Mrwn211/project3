@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 
 import KidCard from "../KidCard.js";
 import AddKid from "../AddKid.js";
-import NavBar from "../NavBar.js";
 
 class PageAdmin extends Component {
   state = {
@@ -32,11 +30,14 @@ class PageAdmin extends Component {
         <KidCard />
 
         <div className={"button button-cta"}>
-          <div onClick={this.toggleModal} showModal={this.state.showModal}>
+          <div onClick={this.toggleModal}>
             <FontAwesomeIcon icon="plus-circle" /> Add a kid
           </div>
         </div>
-        <AddKid showModal={this.state.showModal} />
+        <AddKid
+          showModal={this.state.showModal}
+          toggleModal={this.toggleModal}
+        />
 
         {/* <NavBar /> */}
       </div>

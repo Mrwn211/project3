@@ -3,7 +3,6 @@ import "bulma/css/bulma.css";
 
 import AuthService from "./auth-service.js";
 import { Link } from "react-router-dom";
-import Login from "./Login.js";
 
 export default class extends React.Component {
   state = {
@@ -30,7 +29,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div className="hero is-success is-fullheight">
+      <div className="hero is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
@@ -66,9 +65,7 @@ export default class extends React.Component {
                 </form>
               </div>
               <p className="has-text-grey">
-                <Link to="/login" />
-                Login
-                <Link /> &nbsp;·&nbsp;
+                <Link to="/login">Login</Link> &nbsp;·&nbsp;
                 <a href="../">Forgot Password</a> &nbsp;·&nbsp;
               </p>
             </div>
