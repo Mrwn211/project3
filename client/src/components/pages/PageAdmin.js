@@ -32,14 +32,13 @@ class PageAdmin extends Component {
         <KidCard />
 
         <div className={"button button-cta"}>
-          <div onClick={this.toggleModal}>
-            <Link />
+          <div onClick={this.toggleModal} showModal={this.state.showModal}>
             <FontAwesomeIcon icon="plus-circle" /> Add a kid
-            {/* <Link to="/addkid">Add a kid</Link> */}
-            <AddKid showModal={this.state.showModal} />
-            <NavBar />
           </div>
         </div>
+        <AddKid showModal={this.state.showModal} />
+
+        {/* <NavBar /> */}
       </div>
     );
   }

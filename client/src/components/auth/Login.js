@@ -65,7 +65,7 @@ export default class extends React.Component {
                 </form>
               </div>
               <p className="has-text-grey">
-                <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                <Link to="/signup">Sign Up</Link> &nbsp;·&nbsp;
                 <a href="../">Forgot Password</a> &nbsp;·&nbsp;
               </p>
             </div>

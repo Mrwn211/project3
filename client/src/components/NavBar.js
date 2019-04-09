@@ -8,7 +8,7 @@ class NavBar extends Component {
           <div class="navbar-brand">
             <a class="navbar-item is-expanded  is-block has-text-centered">
               <i class="fa fa-user" />
-              <p class="is-size-7">Account</p>
+              <p class="is-size-7">Admin</p>
             </a>
             <a class="navbar-item is-expanded  is-block has-text-centered">
               <i class="fa fa-list" />
