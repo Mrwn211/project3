@@ -24,12 +24,13 @@ import {
   faPlusCircle,
   faUser,
   faEnvelope,
-  faUpload
+  faUpload,
+  faClock
 } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "./components/NavBar";
 import PageChooseKid from "./components/pages/PageChooseKid";
 
-library.add(faPlusCircle, faUser, faEnvelope, faUpload);
+library.add(faPlusCircle, faUser, faEnvelope, faUpload, faClock);
 
 class App extends Component {
   state = {

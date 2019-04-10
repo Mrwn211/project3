@@ -1,29 +1,34 @@
 import React, { Component } from "react";
 import bulmaCalendar from "bulma-calendar/dist/js/bulma-calendar.min.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class FillDay extends Component {
   componentDidMount() {
-    const calendars = bulmaCalendar.attach('[type="datetime"]');
+    const calendars = bulmaCalendar.attach('[type="date"]');
+    const timers = bulmaCalendar.attach('[type="time]');
   }
   render() {
     return (
       <div className="field">
         <label className="label is-uppercase" />
-        <div className="control">
-          <input
-            type="datetime"
-            data-display-mode="inline"
-            data-is-range="true"
-            data-close-on-select="true"
-            weekStart="1"
-            showTodayButton="true"
-            disabledWeekDays="Sunday Saturday"
-            dateFormat="DD/MM/YYYY"
-            todayLabel="Today"
-            nowLabel="Now"
-            validateLabel="Validate"
-          />
-        </div>
+        {/* <input type="time" data-display-mode="inline" /> */}
+        <input
+          type="date"
+          showHeader="false"
+          data-display-mode="inline"
+          data-is-range="false"
+          data-close-on-select="true"
+          weekStart="0"
+          showTodayButton="true"
+          weekDays="true"
+          dateFormat="DD/MM/YYYY"
+          todayLabel="Today"
+          nowLabel="Now"
+          validateLabel="Validate"
+          labelFrom="Check-in"
+          labelTo="Check-out"
+          position="auto"
+        />
         <div className="field">
           <label className="label">Morning Activity</label>
           <div className="control">
@@ -42,12 +47,12 @@ class FillDay extends Component {
             <input className="input" type="text" placeholder="Gardening" />
           </div>
         </div>
-        <div class="select">
-          <select>
-            <option>Less than an hour</option>
-            <option>Btw an hour and 2 hours</option>
-            <option>More than 2 hours</option>
-          </select>
+        <div class="field">
+          <label className="label">Nap Duration</label>
+          <span className="icon is-small is-left">
+            <FontAwesomeIcon icon="clock" size="sm" />
+          </span>
+          <input className="input" type="time" />
         </div>
         <br /> <br />
         <div className="field is-grouped is-grouped-centered">
