@@ -19,20 +19,21 @@ h1 {
 // | _ \ || | | '  \/ _` |
 // |___/\_,_|_|_|_|_\__,_|
 
+// ___      _                           _      _    _
+// | _ )_  _| |_ __  __ _  __ ____ _ _ _(_)__ _| |__| |___
+// | _ \ || | | '  \/ _` | \ V / _` | '_| / _` | '_ \ / -_)
+// |___/\_,_|_|_|_|_\__,_|  \_/\__,_|_| |_\__,_|_.__/_\___|
+
 [data-route="/fill-day"] {
   $label-color: black;
 }
 
-.modal-content .label {
-  color: white;
-}
-
 $timeline-line: 0.1rem solid;
+
+$modal-content-width: 95%;
 
 @import "../node_modules/bulma/bulma.sass";
 
-// @import "bulma";
-// @import "~bulma-calendar";
 @import "../node_modules/bulma-timeline/dist/css/bulma-timeline.sass";
 /*
   _                          
@@ -135,12 +136,60 @@ $timeline-line: 0.1rem solid;
   }
 }
 
-[data-route="/addkid"] {
-  body {
-    background-image: url("../src/14888.jpg");
+[data-route="/admin"] {
+  .modal-content .label {
+    color: white;
   }
 
-  .label {
-    color: blue;
+  $pad: 1em;
+
+  .kidcards {
+    padding: $pad;
+
+    @media (min-width: 900px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .modal-content {
+      padding: $pad;
+      margin: $pad;
+    }
+  }
+
+  .field {
+    padding: 1em;
+  }
+
+  .cardout {
+    margin-bottom: $pad;
+
+    @media (min-width: 900px) {
+      width: 50%;
+
+      &:nth-child(2n + 1) {
+        padding-right: $pad/2;
+      }
+      &:nth-child(2n) {
+        padding-left: $pad/2;
+      }
+    }
+  }
+}
+
+[data-route="/fill-day"] {
+  .datetimepicker {
+    max-width: none;
+    margin-bottom: 1em;
+  }
+  .container {
+    padding: 1em;
+  }
+  .datetimepicker .datetimepicker-header .datetimepicker-selection-from,
+  .datetimepicker .datetimepicker-header .datetimepicker-selection-to {
+    font-size: 1.65rem;
+    color: #b5b5b5;
+    text-transform: uppercase;
+    padding: 0;
   }
 }

@@ -25,9 +25,11 @@ class PageAdmin extends Component {
   render() {
     return (
       <div>
-        <KidCard />
-        <KidCard />
-        <KidCard />
+        <div className="kidcards">
+          <KidCard />
+          <KidCard />
+          <KidCard />
+        </div>
 
         <div className={"button button-cta"}>
           <div onClick={this.toggleModal}>

@@ -11,17 +11,17 @@ class FillDay extends Component {
       labelFrom: "Check-in",
       labelTo: "Check-out",
       allowSameDayRange: true,
-      displayMode: "inline"
+      displayMode: "inline",
+      disabledWeekDays: [0, 6],
+      isRange: true,
+      position: "center"
     });
   }
   render() {
     return (
-      <div className="field">
-        <label className="label is-uppercase" />
+      <div className="container">
         <input
           type="datetime"
-          // showHeader="false"
-          data-is-range="false"
           data-close-on-select="true"
           showTodayButton="true"
           weekDays="true"
@@ -50,10 +50,13 @@ class FillDay extends Component {
           </div>
         </div>
         <div class="field">
-          <label className="label">Nap Duration</label>
-          <span className="icon is-small is-left">
-            <FontAwesomeIcon icon="clock" size="sm" />
-          </span>
+          <label className="label">
+            <span className="icon is-small is-left">
+              <FontAwesomeIcon icon="clock" size="sm" />
+            </span>
+            Nap Duration
+          </label>
+
           <input className="input" type="time" />
         </div>
         <br /> <br />
