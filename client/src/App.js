@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { Link, Switch, Route } from "react-router-dom";
 
-import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 
 import "./App.scss";
 import "bulma-calendar/dist/css/bulma-calendar.min.css";
+//import "bulma-timeline/dist/css/bulma-timeline.css";
 
 import Signup from "./components/auth/Signup.js";
 import Login from "./components/auth/Login.js";
 import AuthService from "./components/auth/auth-service.js";
 
 import Day from "./components/Day.js";
-import KidCard from "./components/KidCard.js";
 import PageAdmin from "./components/pages/PageAdmin.js";
 import AddKid from "./components/AddKid.js";
 import FillDay from "./components/FillDay.js";
+import Timeline from "./components/pages/Timeline.js";
 
 // import Profile from "./components/auth/Profile.js";
 
@@ -69,6 +69,7 @@ class App extends Component {
               <Route path="/addkid" render={() => <AddKid />} />
               <Route path="/choose-kid" render={() => <PageChooseKid />} />
               <Route path="/fill-day" render={() => <FillDay />} />
+              <Route path="/timeline" render={() => <Timeline />} />
             </Switch>
           </div>
         )}

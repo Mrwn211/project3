@@ -27,8 +27,13 @@ h1 {
   color: white;
 }
 
+$timeline-line: 0.1rem solid;
+
 @import "../node_modules/bulma/bulma.sass";
 
+// @import "bulma";
+// @import "~bulma-calendar";
+@import "../node_modules/bulma-timeline/dist/css/bulma-timeline.sass";
 /*
   _                          
  | |                         
@@ -37,7 +42,6 @@ h1 {
  | | | | (_) | | | | | |  __/
  |_| |_|\___/|_| |_| |_|\___|
 */
-
 [data-route="/login"] {
   div.hero {
     background-image: url("./14888.jpg");

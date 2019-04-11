@@ -4,29 +4,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class FillDay extends Component {
   componentDidMount() {
-    const calendars = bulmaCalendar.attach('[type="date"]');
-    const timers = bulmaCalendar.attach('[type="time]');
+    const calendars = bulmaCalendar.attach('[type="datetime"]', {
+      weekStart: 1,
+      weekDays: true,
+      showHeader: true,
+      labelFrom: "Check-in",
+      labelTo: "Check-out",
+      allowSameDayRange: true,
+      displayMode: "inline"
+    });
   }
   render() {
     return (
       <div className="field">
         <label className="label is-uppercase" />
-        {/* <input type="time" data-display-mode="inline" /> */}
         <input
-          type="date"
-          showHeader="false"
-          data-display-mode="inline"
+          type="datetime"
+          // showHeader="false"
           data-is-range="false"
           data-close-on-select="true"
-          weekStart="0"
           showTodayButton="true"
           weekDays="true"
           dateFormat="DD/MM/YYYY"
           todayLabel="Today"
           nowLabel="Now"
           validateLabel="Validate"
-          labelFrom="Check-in"
-          labelTo="Check-out"
           position="auto"
         />
         <div className="field">
