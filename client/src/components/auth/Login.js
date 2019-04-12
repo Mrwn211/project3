@@ -35,10 +35,10 @@ export default class extends React.Component {
             <div className="column is-4 is-offset-4">
               <h3 className="title has-text-grey">Login</h3>
               <p className="subtitle has-text-grey">Please login to proceed.</p>
+              <div className="">
+                <img src="../img/mascott.png" />
+              </div>
               <div className="box">
-                <div className="avatar">
-                  <img src="https://res.cloudinary.com/mrwn211/image/upload/v1554319207/mascott.jpg" />
-                </div>
                 <form>
                   <div className="field">
                     <div className="control">

@@ -29,6 +29,9 @@ class PageAdmin extends Component {
           <KidCard />
           <KidCard />
           <KidCard />
+          <KidCard />
+          <KidCard />
+          <KidCard />
         </div>
 
         <div className={"button button-cta"}>
