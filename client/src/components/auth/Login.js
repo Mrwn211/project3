@@ -45,8 +45,8 @@ export default class extends React.Component {
                     <div className="control">
                       <input
                         className="input is-large"
-                        type="email"
-                        placeholder="Your Email"
+                        type="text"
+                        placeholder="Your Username"
                         autofocus
                       />
                     </div>

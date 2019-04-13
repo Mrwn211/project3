@@ -3,6 +3,7 @@ import "bulma/css/bulma.css";
 
 import AuthService from "./auth-service.js";
 import { Link } from "react-router-dom";
+import mascott from "../img/mascott.png";
 
 export default class extends React.Component {
   state = {
@@ -35,40 +36,41 @@ export default class extends React.Component {
             <div className="column is-4 is-offset-4">
               <h3 className="title has-text-grey">Signup</h3>
               <p className="subtitle has-text-grey">Please login to proceed.</p>
-              <div className="box">
-                <div className="avatar">
-                  <img src="https://res.cloudinary.com/mrwn211/image/upload/v1554319207/mascott.jpg" />
-                </div>
-                <form>
-                  <div className="field">
-                    <div className="control">
-                      <input
-                        className="input is-large"
-                        type="email"
-                        placeholder="Your Email"
-                        autofocus
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <input
-                        className="input is-large"
-                        type="password"
-                        placeholder="Your Password"
-                      />
-                    </div>
-                  </div>
-                  <button className="button is-block is-info is-large is-fullwidth">
-                    Signup
-                  </button>
-                </form>
+              <div className="">
+                <img src={mascott} />
               </div>
-              <p className="has-text-grey">
-                <Link to="/login">Login</Link> &nbsp;·&nbsp;
-                <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-              </p>
+              <form>
+                <div className="field">
+                  <div className="control">
+                    <input
+                      className="input is-large"
+                      type="text"
+                      placeholder="Your Username"
+                      autofocus
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="control">
+                    <input
+                      className="input is-large"
+                      type="password"
+                      placeholder="Your Password"
+                    />
+                  </div>
+                </div>
+                <button
+                  className="button is-block is-info is-large is-fullwidth"
+                  onClick={this.state.handleSubmit}
+                >
+                  Signup
+                </button>
+              </form>
             </div>
+            <p className="has-text-grey">
+              <Link to="/login">Login</Link> &nbsp;·&nbsp;
+              <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+            </p>
           </div>
         </div>
       </div>

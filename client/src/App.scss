@@ -61,6 +61,10 @@ $modal-content-width: 95%;
 */
 
 [data-route="/signup"] {
+  div.hero {
+    background-image: url("./components/img/14888.jpg");
+  }
+
   .btn {
     background-color: #ffffff;
   }

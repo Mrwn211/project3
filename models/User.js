@@ -8,7 +8,7 @@ const userSchema = new Schema(
     // 👇
     type: {
       accountType: String,
-      enum: ["Parent", "Childcare"]
+      enum: ["Parent", "Admin"]
     },
     // 👆
     kid: { type: Schema.ObjectId, ref: "Kid" }
