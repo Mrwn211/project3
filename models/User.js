@@ -9,8 +9,9 @@ const userSchema = new Schema(
     type: {
       accountType: String,
       enum: ["Parent", "Childcare"]
-    }
+    },
     // 👆
+    kid: { type: Schema.ObjectId, ref: "Kid" }
   },
   {
     timestamps: {

@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const chileSchema = new Schema(
+const KidSchema = new Schema(
   {
     firstName: String,
     lastName: String,
-    image: String
+    image: String,
+    days: [{ type: Schema.ObjectId, ref: "Day" }]
   },
+
   {
     timestamps: {
       createdAt: "created_at",
@@ -15,5 +17,5 @@ const chileSchema = new Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Kid = mongoose.model("Kid", KidSchema);
+module.exports = Kid;

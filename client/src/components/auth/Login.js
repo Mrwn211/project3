@@ -3,6 +3,7 @@ import "bulma/css/bulma.css";
 
 import AuthService from "./auth-service.js";
 import { Link } from "react-router-dom";
+import mascott from "../img/mascott.png";
 
 export default class extends React.Component {
   state = {
@@ -36,7 +37,7 @@ export default class extends React.Component {
               <h3 className="title has-text-grey">Login</h3>
               <p className="subtitle has-text-grey">Please login to proceed.</p>
               <div className="">
-                <img src="../img/mascott.png" />
+                <img src={mascott} />
               </div>
               <div className="box">
                 <form>
