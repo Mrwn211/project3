@@ -11,6 +11,10 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 router.post("/addkid", async (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ message: "you need to login to add a kid" });
+  }
+
   const salt = bcrypt.genSaltSync(bcryptSalt);
   const hashPass = bcrypt.hashSync(req.body.firstName, salt);
 
@@ -20,6 +24,7 @@ router.post("/addkid", async (req, res, next) => {
     age: req.body.age
   });
 
+  // Creation du parent
   const newUser = new User({
     username: req.body.username,
     password: hashPass,
@@ -32,6 +37,7 @@ router.post("/addkid", async (req, res, next) => {
   } catch (error) {
     res.status(500).json(err);
   }
+
   res.status(200).json(kid);
 });
 
@@ -73,6 +79,38 @@ router.get("/kids", (req, res, next) => {
     .catch(err => {
       res.json(err);
     });
+});
+
+// POST route => Fill the day
+
+router.post("/fillday/:kid_id", async (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ message: "you need to login" });
+  }
+
+  try {
+    const kidid = req.params.kid_id;
+    const kid = await Kid.findById(kidid);
+
+    if (!kid) {
+      return res.status(404).json({ message: "no kid with that kid_id" });
+    }
+
+    const day = await Day.create({
+      date: req.body.date,
+      morningActivity: req.body.morningActivity,
+      meal: req.body.meal,
+      afternoonActivity: req.body.afternoonActivity,
+      nap: req.body.nap
+    });
+
+    kid.days.push(day);
+    await kid.save();
+
+    res.status(200).json(day);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
 });
 
 module.exports = router;

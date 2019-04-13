@@ -96,4 +96,7 @@ app.use("/auth", authRoutes);
 const admin = require("./routes/admin");
 app.use("/admin", admin);
 
+const parent = require("./routes/parent");
+app.use("/parent", parent);
+
 module.exports = app;
