@@ -5,6 +5,7 @@ const KidSchema = new Schema(
   {
     firstName: String,
     lastName: String,
+    age: Number,
     image: String,
     days: [{ type: Schema.ObjectId, ref: "Day" }]
   },

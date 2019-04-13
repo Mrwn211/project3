@@ -6,8 +6,8 @@ const userSchema = new Schema(
     username: String,
     password: String,
     // 👇
-    type: {
-      accountType: String,
+    accountType: {
+      type: String,
       enum: ["Parent", "Admin"]
     },
     // 👆
