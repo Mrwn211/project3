@@ -8,21 +8,22 @@ class AddKid extends Component {
       firstName: "",
       lastName: "",
       age: "",
-      image: ""
+      image: "",
+      parentEmail: ""
     };
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.service
-      .signup(this.state.username, this.state.password)
-      .then(() => this.props.history.push("/admin"));
-  };
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   // Axios post avec mon api json addkid
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+  //   //     .then(() => this.props.history.push("/admin"));
+  // };
+
+  // handleChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: value });
+  // };
   render() {
     let classes = ["modal"];
     if (this.props.showModal) {
@@ -40,8 +41,9 @@ class AddKid extends Component {
                 <input
                   className="input is-success"
                   type="text"
-                  placeholder="Text input"
-                  value="Kiddo"
+                  placeholder="Didoo"
+                  name="firstName"
+                  value={this.state.firstName}
                 />
                 <span className="icon is-small is-left">
                   <FontAwesomeIcon icon="user" size="sm" />
@@ -54,8 +56,9 @@ class AddKid extends Component {
                 <input
                   className="input is-success"
                   type="text"
-                  placeholder="Text input"
-                  value="Jones"
+                  placeholder="Kidoo"
+                  name="lastName"
+                  value={this.lastName}
                 />
                 <span className="icon is-small is-left">
                   <FontAwesomeIcon icon="user" size="sm" />
@@ -65,20 +68,27 @@ class AddKid extends Component {
             <div className="field">
               <label className="label">Age</label>
               <div className="control">
-                <input className="input" type="text" placeholder="2" />
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="2"
+                  name="age"
+                  value={this.age}
+                />
               </div>
             </div>
 
-            <div class="field">
-              <label class="label">Parent's Email</label>
-              <div class="control has-icons-left has-icons-right">
+            <div className="field">
+              <label className="label">Parent's Email</label>
+              <div className="control has-icons-left has-icons-right">
                 <input
-                  class="input"
+                  className="input"
                   type="email"
                   placeholder="Email input"
-                  value="hello@"
+                  name="parentEmail"
+                  value={this.parentEmail}
                 />
-                <span class="icon is-small is-left">
+                <span className="icon is-small is-left">
                   <FontAwesomeIcon icon="envelope" size="sm" />{" "}
                 </span>
               </div>
