@@ -62,8 +62,8 @@ class App extends Component {
         render={props => (
           <div className="App" data-route={props.location.pathname}>
             <Switch>
-              <Route path="/login" render={() => <Login />} />
-              <Route path="/signup" render={() => <Signup />} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
               <Route path="/day" render={() => <Day />} />
               <Route path="/admin" render={() => <PageAdmin />} />
               <Route path="/addkid" render={() => <AddKid />} />

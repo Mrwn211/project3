@@ -16,11 +16,8 @@ export default class extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.service
-      .login(this.state.username, this.state.password)
-      .then(response => {
-        this.props.updateUser(response);
-        this.props.history.push("/");
-      });
+      .signup(this.state.username, this.state.password)
+      .then(() => this.props.history.push("/admin"));
   };
 
   handleChange = event => {
@@ -35,11 +32,13 @@ export default class extends React.Component {
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
               <h3 className="title has-text-grey">Signup</h3>
-              <p className="subtitle has-text-grey">Please login to proceed.</p>
+              <p className="subtitle has-text-grey">
+                Please signup to proceed.
+              </p>
               <div className="">
                 <img src={mascott} />
               </div>
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="field">
                   <div className="control">
                     <input
@@ -47,6 +46,9 @@ export default class extends React.Component {
                       type="text"
                       placeholder="Your Username"
                       autofocus
+                      name="username"
+                      value={this.state.username}
+                      onChange={this.handleChange}
                     />
                   </div>
                 </div>
@@ -55,13 +57,16 @@ export default class extends React.Component {
                     <input
                       className="input is-large"
                       type="password"
+                      name="password"
                       placeholder="Your Password"
+                      value={this.state.password}
+                      onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 <button
                   className="button is-block is-info is-large is-fullwidth"
-                  onClick={this.state.handleSubmit}
+                  onClick={this.handleSubmit}
                 >
                   Signup
                 </button>

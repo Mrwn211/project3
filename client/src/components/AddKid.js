@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class AddKid extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      firstName: "",
+      lastName: "",
+      age: "",
+      image: ""
+    };
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.service
+      .signup(this.state.username, this.state.password)
+      .then(() => this.props.history.push("/admin"));
+  };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
   render() {
     let classes = ["modal"];
     if (this.props.showModal) {

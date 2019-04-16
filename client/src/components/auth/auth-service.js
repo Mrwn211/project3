@@ -14,7 +14,8 @@ class AuthService {
   login = (username, password) => {
     return this.service
       .post("/login", { username, password })
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(console.error);
   };
 
   signup = (username, password) => {
@@ -33,15 +34,6 @@ class AuthService {
   logout = () => {
     return this.service.get("/logout", {}).then(response => response.data);
   };
-
-  // edit = (username, campus, course) => {
-  //   return this.service.post('/edit', {
-  //     username,
-  //     campus,
-  //     course
-  //   })
-  //   .then(response => response.data)
-  // }
 
   upload = formdata => {
     return this.service
