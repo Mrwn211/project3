@@ -51,7 +51,6 @@ app.use(
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
-app.use(express.static(path.join(__dirname, "client/build")));
 //app.use(favicon(path.join(__dirname, 'client/build/favicon.ico')));
 
 hbs.registerHelper("ifUndefined", (value, options) => {
@@ -98,5 +97,15 @@ app.use("/admin", admin);
 
 const parent = require("./routes/parent");
 app.use("/parent", parent);
+
+app.use(express.static(path.join(__dirname, "client/build")));
+// 404 => serve React SPA
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 module.exports = app;
