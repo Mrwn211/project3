@@ -16,11 +16,11 @@ router.post("/addkid", async (req, res, next) => {
   }
 
   const salt = bcrypt.genSaltSync(bcryptSalt);
-  const hashPass = bcrypt.hashSync(req.body.firstName, salt);
+  const hashPass = bcrypt.hashSync(req.body.firstname, salt);
 
   const kid = await Kid.create({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    firstName: req.body.firstname,
+    lastName: req.body.lastname,
     age: req.body.age
   });
 
@@ -44,13 +44,13 @@ router.post("/addkid", async (req, res, next) => {
 const uploader = require("../cloudinary.js");
 router.post(
   "/upload/:kid",
-  uploader.single("photo"),
+  uploader.single("image"),
   async (req, res, next) => {
     // Check user is logged in
     if (!req.isAuthenticated()) {
       res
         .status(401)
-        .json({ message: "You need to be logged in to upload your avatar" });
+        .json({ message: "You need to be logged in to upload a kid photo" });
       return;
     }
 
@@ -66,7 +66,7 @@ router.post(
     } catch (error) {
       return res.status(500).json(error);
     }
-    res.status(200).json("OK");
+    res.status(200).json(req.file.secure_url);
   }
 );
 

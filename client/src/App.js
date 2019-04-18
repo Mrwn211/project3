@@ -65,7 +65,7 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <Route path="/day" render={() => <Day />} />
-              <Route path="/admin" render={() => <PageAdmin />} />
+              <Route path="/admin" component={PageAdmin} />
               <Route path="/addkid" render={() => <AddKid />} />
               <Route path="/choose-kid" render={() => <PageChooseKid />} />
               <Route path="/fill-day" render={() => <FillDay />} />
