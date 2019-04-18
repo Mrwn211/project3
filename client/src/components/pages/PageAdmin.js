@@ -4,10 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import KidCard from "../KidCard.js";
 import AddKid from "../AddKid.js";
 
+import KidService from "../kid-service.js";
+
 class PageAdmin extends Component {
-  state = {
-    showModal: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      listKids: []
+    };
+    this.service = new KidService();
+  }
 
   toggleModal = event => {
     this.setState({
@@ -15,23 +21,26 @@ class PageAdmin extends Component {
     });
   };
 
-  // closeModal = event => {
-  //   this.setState({
-  //     showModal: false
-  //   });
-  //   console.log("J'imprime les states du parent ", this.state);
-  // };
+  componentDidMount() {
+    this.service.getAllKids().then(response => {
+      this.setState({ listKids: response.data });
+    });
+  }
 
   render() {
     return (
       <div>
         <div className="kidcards">
-          <KidCard />
-          <KidCard />
-          <KidCard />
-          <KidCard />
-          <KidCard />
-          <KidCard />
+          {this.state.listKids.map(kid => {
+            return (
+              <KidCard
+                image={kid.image}
+                firstname={kid.firstName}
+                lastname={kid.lastName}
+                age={kid.age}
+              />
+            );
+          })}
         </div>
 
         <div className={"button button-cta"}>

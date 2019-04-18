@@ -37,6 +37,10 @@ class KidService extends Component {
       console.error(error);
     }
   };
+
+  getAllKids() {
+    return this.service.get("/kids");
+  }
 }
 
 export default KidService;

@@ -10,16 +10,15 @@ class KidCard extends Component {
             <div className="media">
               <div className="media-left">
                 <figure className="image is-96x96">
-                  <img
-                    src="https://i.imgsafe.org/a4/a4bb9acc5e.jpeg"
-                    alt="Kid's name"
-                  />
+                  <img src={this.props.image} alt={this.props.firstname} />
                 </figure>
               </div>
               <div className="media-content">
-                <p className="title is-4 no-padding">Okinami Akitaka</p>
+                <p className="title is-4 no-padding">
+                  {`${this.props.firstname} ${this.props.lastname}`}
+                </p>
                 <p>
-                  <span className="title is-6">Age : 2 ans</span>
+                  <span className="title is-6">{this.props.age}</span>
                 </p>
                 <Link className="button is-info is-rounded" to="/fill-day">
                   Fill the day
