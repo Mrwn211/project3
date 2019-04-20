@@ -16,11 +16,11 @@ class NavBar extends Component {
             </a>
             <a class="navbar-item is-expanded is-block has-text-centered">
               <i class="fa fa-flag" />
-              <p class="is-size-7">Alerts</p>
+              <p class="is-size-7">Add Kid</p>
             </a>
             <a class="navbar-item is-expanded  is-block has-text-centered">
               <i class="fa fa-cog" />
-              <p class="is-size-7">Settings</p>
+              <p class="is-size-7">Logout</p>
             </a>
           </div>
         </nav>

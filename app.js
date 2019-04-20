@@ -86,7 +86,7 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-const index = require("./routes/index");
+const index = require("./routes/auth");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth");

@@ -15,30 +15,37 @@ router.post("/addkid", async (req, res, next) => {
     return res.status(401).json({ message: "you need to login to add a kid" });
   }
 
-  const salt = bcrypt.genSaltSync(bcryptSalt);
-  const hashPass = bcrypt.hashSync(req.body.firstname, salt);
-
-  const kid = await Kid.create({
-    firstName: req.body.firstname,
-    lastName: req.body.lastname,
-    age: req.body.age
-  });
-
-  // Creation du parent
-  const newUser = new User({
-    username: req.body.username,
-    password: hashPass,
-    accountType: "Parent",
-    kid: kid._id
-  });
-
   try {
-    await newUser.save();
-  } catch (error) {
-    res.status(500).json(err);
-  }
+    const salt = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(req.body.firstname, salt);
+    // Création du Kid
 
-  res.status(200).json(kid);
+    const kid = await Kid.create({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      age: req.body.age
+    });
+
+    // Assignation du Kid à la creche
+
+    await User.findByIdAndUpdate(req.user._id, {
+      $push: { kid: kid._id }
+    });
+
+    // Creation du parent associé au Kid
+
+    const newUser = await new User({
+      username: req.body.username,
+      password: hashPass,
+      accountType: "Parent",
+      kid: kid._id
+    });
+    await newUser.save();
+    res.status(200).json(kid);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: e });
+  }
 });
 
 const uploader = require("../cloudinary.js");
@@ -72,9 +79,15 @@ router.post(
 
 // GET route => to get all the kids
 router.get("/kids", (req, res, next) => {
-  Kid.find()
+  if (!req.isAuthenticated()) {
+    return res
+      .status(401)
+      .json({ message: "you need to login to add see the admin page" });
+  }
+  User.findById(req.user._id)
+    .populate("kid")
     .then(allTheKids => {
-      res.json(allTheKids);
+      res.json(allTheKids.kid);
     })
     .catch(err => {
       res.json(err);

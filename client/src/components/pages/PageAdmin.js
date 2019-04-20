@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import KidCard from "../KidCard.js";
 import AddKid from "../AddKid.js";
-
+import NavBar from "../NavBar.js";
 import KidService from "../kid-service.js";
 
 class PageAdmin extends Component {
@@ -53,7 +53,7 @@ class PageAdmin extends Component {
           toggleModal={this.toggleModal}
         />
 
-        {/* <NavBar /> */}
+        <NavBar />
       </div>
     );
   }

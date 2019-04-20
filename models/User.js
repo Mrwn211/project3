@@ -11,7 +11,7 @@ const userSchema = new Schema(
       enum: ["Parent", "Admin"]
     },
     // 👆
-    kid: { type: Schema.ObjectId, ref: "Kid" }
+    kid: [{ type: Schema.ObjectId, ref: "Kid" }]
   },
   {
     timestamps: {
