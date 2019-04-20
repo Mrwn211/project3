@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const daySchema = new Schema(
   {
     date: Date,
+    start: Date,
+    end: Date,
     morningActivity: String,
     meal: String,
     afternoonActivity: String,

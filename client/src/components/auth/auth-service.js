@@ -32,7 +32,7 @@ class AuthService {
   };
 
   logout = () => {
-    return this.service.get("/logout", {}).then(response => response.data);
+    return this.service.get("/logout").then(response => response.data);
   };
 
   upload = formdata => {

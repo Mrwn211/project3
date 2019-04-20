@@ -29,7 +29,7 @@ class PageAdmin extends Component {
 
   render() {
     return (
-      <div>
+      <div className="background">
         <div className="kidcards">
           {this.state.listKids.map(kid => {
             return (
@@ -38,22 +38,19 @@ class PageAdmin extends Component {
                 firstname={kid.firstName}
                 lastname={kid.lastName}
                 age={kid.age}
+                kid_id={kid._id}
+                history={this.props.history}
               />
             );
           })}
         </div>
 
-        <div className={"button button-cta"}>
-          <div onClick={this.toggleModal}>
-            <FontAwesomeIcon icon="plus-circle" /> Add a kid
-          </div>
-        </div>
         <AddKid
           showModal={this.state.showModal}
           toggleModal={this.toggleModal}
         />
 
-        <NavBar />
+        <NavBar toggleModal={this.toggleModal} history={this.props.history} />
       </div>
     );
   }

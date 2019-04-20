@@ -1,27 +1,42 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import AuthService from "./auth/auth-service.js";
+import { Link } from "react-router-dom";
+import AddKid from "./AddKid.js";
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.service = new AuthService();
+  }
+
+  handleLogOut = event => {
+    event.preventDefault();
+    this.service.logout().then(() => this.props.history.push("/login"));
+  };
+
   render() {
     return (
       <div>
-        <nav class="navbar is-link is-fixed-bottom" role="navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item is-expanded  is-block has-text-centered">
-              <i class="fa fa-user" />
-              <p class="is-size-7">Admin</p>
-            </a>
-            <a class="navbar-item is-expanded  is-block has-text-centered">
-              <i class="fa fa-list" />
-              <p class="is-size-7">Tasks</p>
-            </a>
-            <a class="navbar-item is-expanded is-block has-text-centered">
-              <i class="fa fa-flag" />
-              <p class="is-size-7">Add Kid</p>
-            </a>
-            <a class="navbar-item is-expanded  is-block has-text-centered">
-              <i class="fa fa-cog" />
-              <p class="is-size-7">Logout</p>
-            </a>
+        <nav className="navbar is-link is-fixed-bottom" role="navigation">
+          <div className="navbar-brand">
+            <button
+              onClick={() => {
+                this.props.toggleModal();
+              }}
+              className="navbar-item is-expanded is-block has-text-centered"
+            >
+              <FontAwesomeIcon icon="plus-circle" />
+              <p className="is-size-7">Add Kid</p>
+            </button>
+            <button
+              onClick={this.handleLogOut}
+              className="navbar-item is-expanded  is-block has-text-centered"
+            >
+              <FontAwesomeIcon icon="sign-out-alt" />
+              <p className="is-size-7">Logout</p>
+            </button>
           </div>
         </nav>
       </div>

@@ -144,6 +144,9 @@ $modal-content-width: 95%;
   .modal-content .label {
     color: white;
   }
+  .background {
+    background-image: url("./components/img/14888.jpg");
+  }
 
   $pad: 1em;
 
@@ -181,7 +184,7 @@ $modal-content-width: 95%;
   }
 }
 
-[data-route="/fill-day"] {
+[data-route^="/fill-day"] {
   .datetimepicker {
     max-width: none;
     margin-bottom: 1em;

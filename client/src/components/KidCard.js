@@ -20,7 +20,10 @@ class KidCard extends Component {
                 <p>
                   <span className="title is-6">{this.props.age}</span>
                 </p>
-                <Link className="button is-info is-rounded" to="/fill-day">
+                <Link
+                  className="button is-info is-rounded"
+                  to={`/fill-day/${this.props.kid_id}`}
+                >
                   Fill the day
                 </Link>
               </div>

@@ -25,12 +25,11 @@ import {
   faUser,
   faEnvelope,
   faUpload,
-  faClock
+  faClock,
+  faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
-import NavBar from "./components/NavBar";
-import PageChooseKid from "./components/pages/PageChooseKid";
 
-library.add(faPlusCircle, faUser, faEnvelope, faUpload, faClock);
+library.add(faPlusCircle, faUser, faEnvelope, faUpload, faClock, faSignOutAlt);
 
 class App extends Component {
   state = {
@@ -67,8 +66,13 @@ class App extends Component {
               <Route path="/day" render={() => <Day />} />
               <Route path="/admin" component={PageAdmin} />
               <Route path="/addkid" render={() => <AddKid />} />
-              <Route path="/choose-kid" render={() => <PageChooseKid />} />
-              <Route path="/fill-day" render={() => <FillDay />} />
+              <Route
+                path="/fill-day/:kid_id"
+                render={props => {
+                  const kid_id = props.match.params.kid_id;
+                  return <FillDay kid_id={kid_id} history={props.history} />;
+                }}
+              />
               <Route path="/timeline" render={() => <Timeline />} />
             </Switch>
           </div>

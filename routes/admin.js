@@ -111,6 +111,8 @@ router.post("/fillday/:kid_id", async (req, res, next) => {
 
     const day = await Day.create({
       date: req.body.date,
+      start: req.body.start,
+      end: req.body.end,
       morningActivity: req.body.morningActivity,
       meal: req.body.meal,
       afternoonActivity: req.body.afternoonActivity,

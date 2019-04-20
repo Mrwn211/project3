@@ -41,6 +41,31 @@ class KidService extends Component {
   getAllKids() {
     return this.service.get("/kids");
   }
+
+  addDay = (
+    kid_id,
+    date,
+    start,
+    end,
+    morningActivity,
+    meal,
+    afternoonActivity,
+    nap
+  ) => {
+    try {
+      return this.service.post(`/fillday/${kid_id}`, {
+        date,
+        start,
+        end,
+        morningActivity,
+        meal,
+        afternoonActivity,
+        nap
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }
 
 export default KidService;
