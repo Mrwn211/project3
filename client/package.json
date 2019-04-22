@@ -12,6 +12,7 @@
     "bulma-calendar": "^6.0.4",
     "bulma-timeline": "^3.0.3",
     "calendar": "^0.1.0",
+    "history": "^4.9.0",
     "i": "^0.3.6",
     "node-sass": "^4.11.0",
     "npm": "^6.9.0",

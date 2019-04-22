@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const KidSchema = new Schema(
   {
-    firstName: String,
-    lastName: String,
+    firstname: String,
+    lastname: String,
     age: Number,
     image: String,
     days: [{ type: Schema.ObjectId, ref: "Day" }]

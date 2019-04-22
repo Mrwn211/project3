@@ -34,14 +34,14 @@ router.post("/addkid", async (req, res, next) => {
 
     // Creation du parent associé au Kid
 
-    const newUser = await new User({
+    const newUser = new User({
       username: req.body.username,
       password: hashPass,
       accountType: "Parent",
       kid: kid._id
     });
     await newUser.save();
-    res.status(200).json(kid);
+    res.status(201).json({ kid, newUser });
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: e });
@@ -73,7 +73,7 @@ router.post(
     } catch (error) {
       return res.status(500).json(error);
     }
-    res.status(200).json(req.file.secure_url);
+    res.status(200).json({ url: req.file.secure_url });
   }
 );
 

@@ -21,6 +21,13 @@ class PageAdmin extends Component {
     });
   };
 
+  kidcreated = newkid => {
+    this.setState({
+      showModal: false,
+      listKids: [...this.state.listKids, newkid]
+    });
+  };
+
   componentDidMount() {
     this.service.getAllKids().then(response => {
       this.setState({ listKids: response.data });
@@ -35,8 +42,8 @@ class PageAdmin extends Component {
             return (
               <KidCard
                 image={kid.image}
-                firstname={kid.firstName}
-                lastname={kid.lastName}
+                firstname={kid.firstname}
+                lastname={kid.lastname}
                 age={kid.age}
                 kid_id={kid._id}
                 history={this.props.history}
@@ -48,6 +55,8 @@ class PageAdmin extends Component {
         <AddKid
           showModal={this.state.showModal}
           toggleModal={this.toggleModal}
+          history={this.props.history}
+          kidcreated={this.kidcreated}
         />
 
         <NavBar toggleModal={this.toggleModal} history={this.props.history} />

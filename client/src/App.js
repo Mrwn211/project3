@@ -64,7 +64,10 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <Route path="/day" render={() => <Day />} />
-              <Route path="/admin" component={PageAdmin} />
+              <Route
+                path="/admin"
+                render={props => <PageAdmin history={props.history} />}
+              />
               <Route path="/addkid" render={() => <AddKid />} />
               <Route
                 path="/fill-day/:kid_id"

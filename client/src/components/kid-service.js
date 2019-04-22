@@ -20,17 +20,18 @@ class KidService extends Component {
   handleUpload = (formdata, kid_id) => {
     return this.service
       .post(`/upload/${kid_id}`, formdata)
-      .then(response => response.data._id)
+      .then(response => response.data)
       .catch(errorHandler);
   };
 
-  addKid = (firstname, lastname, age) => {
+  addKid = (firstname, lastname, age, username) => {
     try {
       return this.service
         .post("/addkid", {
           firstname,
           lastname,
-          age
+          age,
+          username
         })
         .then(response => response.data);
     } catch (error) {

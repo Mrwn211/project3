@@ -4,26 +4,28 @@ import KidService from "./kid-service.js";
 
 class AddKid extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       age: "",
       parentEmail: ""
     };
     this.service = new KidService();
   }
 
-  handleFileUpload = kid_id => {
+  handleFileUpload = (kid_id, cb) => {
     const photo = document.getElementById("photo");
     console.log("The file to be uploaded is: ", photo.files[0]);
     const uploadData = new FormData();
     uploadData.append("image", photo.files[0]);
-    this.service
+    return this.service
       .handleUpload(uploadData, kid_id)
       .then(response => {
-        console.log("response is: ", response);
-        this.setState({ image: response });
+        console.log("response is: ", response.url);
+        this.setState({ image: response.url }, () => {
+          cb(response.url);
+        });
       })
       .catch(err => {
         console.log("Error while uploading the file: ", err);
@@ -31,12 +33,22 @@ class AddKid extends Component {
   };
 
   handleSubmit = event => {
+    console.log("coucou", this.props);
     event.preventDefault();
     this.service
-      .addKid(this.state.firstName, this.state.lastName, this.state.age)
+      .addKid(
+        this.state.firstname,
+        this.state.lastname,
+        this.state.age,
+        this.state.parentEmail
+      )
       .then(data => {
-        this.handleFileUpload(data._id);
-        this.props.history.push("/admin");
+        this.handleFileUpload(data.kid._id, image => {
+          console.log("image", image);
+          data.kid.image = image;
+          console.log("kid", data.kid);
+          this.props.kidcreated(data.kid);
+        });
       });
   };
 
@@ -64,8 +76,8 @@ class AddKid extends Component {
                     className="input is-success"
                     type="text"
                     placeholder="Didoo"
-                    name="firstName"
-                    value={this.state.firstName}
+                    name="firstname"
+                    value={this.state.firstname}
                     onChange={this.handleChange}
                   />
                   <span className="icon is-small is-left">
@@ -80,8 +92,8 @@ class AddKid extends Component {
                     className="input is-success"
                     type="text"
                     placeholder="Kidoo"
-                    name="lastName"
-                    value={this.state.lastName}
+                    name="lastname"
+                    value={this.state.lastname}
                     onChange={this.handleChange}
                   />
                   <span className="icon is-small is-left">
