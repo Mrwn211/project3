@@ -200,3 +200,26 @@ $modal-content-width: 95%;
     padding: 0;
   }
 }
+
+[data-route^="/timeline"] {
+  .timeline {
+    margin-top: 1em;
+  }
+
+  .container {
+    padding: 1em;
+  }
+
+  .datetimepicker {
+    max-width: none;
+    margin-bottom: 1em;
+  }
+
+  .datetimepicker .datetimepicker-header .datetimepicker-selection-from,
+  .datetimepicker .datetimepicker-header .datetimepicker-selection-to {
+    font-size: 1.65rem;
+    color: #b5b5b5;
+    text-transform: uppercase;
+    padding: 0;
+  }
+}
