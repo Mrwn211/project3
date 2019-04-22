@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import KidService from "../kid-service.js";
 import bulmaCalendar from "bulma-calendar/dist/js/bulma-calendar.min.js";
+import axios from "axios";
 
 class Timeline extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      kid: {},
-      date: ""
+      day: {}
     };
     this.service = new KidService();
   }
@@ -27,8 +27,25 @@ class Timeline extends Component {
       dateFormat: "YYYY-MM-DD"
     });
     calendars[0].on("select", datepicker => {
-      console.log("datepicker1", datepicker, datepicker.data.value());
-      this.setState({ date: datepicker.data.value() });
+      const selectedDate = datepicker.data.value();
+
+      console.log("datepicker1", datepicker, selectedDate);
+      this.setState({ date: selectedDate });
+
+      axios
+        .get(
+          `${process.env.REACT_APP_APIURL || ""}/parent/day/${selectedDate}`,
+          {
+            withCredentials: true
+          }
+        )
+        .then(response => {
+          const day = response.data;
+          this.setState({ day: day });
+        })
+        .catch(err => {
+          this.setState({ day: {} });
+        });
     });
   }
 
