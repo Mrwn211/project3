@@ -9,7 +9,7 @@ const daySchema = new Schema(
     morningActivity: String,
     meal: String,
     afternoonActivity: String,
-    nap: Number
+    nap: String
   },
   {
     timestamps: {

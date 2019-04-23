@@ -18,7 +18,7 @@ router.post("/addkid", async (req, res, next) => {
   try {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(req.body.firstname, salt);
-    // Création du Kid
+    // Create the Kid
 
     const kid = await Kid.create({
       firstname: req.body.firstname,
@@ -26,13 +26,13 @@ router.post("/addkid", async (req, res, next) => {
       age: req.body.age
     });
 
-    // Assignation du Kid à la creche
+    // Adding the Kid to Admin user's
 
     await User.findByIdAndUpdate(req.user._id, {
       $push: { kid: kid._id }
     });
 
-    // Creation du parent associé au Kid
+    // Creation of the kid's parent
 
     const newUser = new User({
       username: req.body.username,

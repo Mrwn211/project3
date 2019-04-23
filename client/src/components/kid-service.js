@@ -66,6 +66,22 @@ class KidService extends Component {
     } catch (error) {
       console.error(error);
     }
+    // console.log(
+    //   "date : ",
+    //   date,
+    //   "start : ",
+    //   start,
+    //   "end : ",
+    //   end,
+    //   "morningActivity : ",
+    //   morningActivity,
+    //   "meal : ",
+    //   meal,
+    //   "afternoonActivity : ",
+    //   afternoonActivity,
+    //   "nap : ",
+    //   nap
+    // );
   };
 }
 

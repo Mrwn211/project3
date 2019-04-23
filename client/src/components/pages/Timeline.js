@@ -50,6 +50,7 @@ class Timeline extends Component {
   }
 
   render() {
+    const existinsgDay = this.state.day;
     return (
       <div className="container">
         <div className="datepicker">
@@ -57,66 +58,77 @@ class Timeline extends Component {
             <input type="date" className="date" onChange={this.handleChange} />
           </form>
         </div>
-        <div className="timeline is-centered">
-          <header className="timeline-header">
-            <span className="tag is-large is-primary">
-              <FontAwesomeIcon icon="clock" size="sm" />
-              <p class="check-in">{` Check-in : ${this.state.day.start}`}</p>
-            </span>
-          </header>
-          <div className="timeline-item is-primary">
-            <div className="timeline-marker is-warning is-icon ">
-              <i>
-                <FontAwesomeIcon icon="running" size="lg" />
-              </i>
-            </div>
-            <div className="timeline-content">
-              <p className="heading">Morning Activity</p>
-              <p className="morning">{`${this.state.day.morningActivity}`}</p>
+
+        {existinsgDay && (
+          <div>
+            <div className="timeline is-centered">
+              <header className="timeline-header">
+                <span className="tag is-large is-primary">
+                  <FontAwesomeIcon icon="clock" size="sm" />
+                  <p class="check-in">{` Check-in : ${
+                    this.state.day.start
+                  }`}</p>
+                </span>
+              </header>
+              <div className="timeline-item is-primary">
+                <div className="timeline-marker is-warning is-icon ">
+                  <i>
+                    <FontAwesomeIcon icon="running" size="lg" />
+                  </i>
+                </div>
+                <div className="timeline-content">
+                  <p className="heading">Morning Activity</p>
+                  <p className="morning">{`${
+                    this.state.day.morningActivity
+                  }`}</p>
+                </div>
+              </div>
+              <div className="timeline-item is-primary">
+                <div className="timeline-marker is-warning is-icon">
+                  <i>
+                    <FontAwesomeIcon icon="utensils" size="lg" />
+                  </i>
+                </div>
+                <div className="timeline-content">
+                  <p className="heading">MEAL</p>
+                  <p className="meal">{`${this.state.day.meal}`}</p>
+                </div>
+              </div>
+              <header className="timeline-header">
+                <span className="tag is-info">NAP</span>
+              </header>
+              <div className="timeline-item is-info">
+                <div className="timeline-marker is-info is-icon">
+                  <i>
+                    <FontAwesomeIcon icon="bed" size="lg" />
+                  </i>
+                </div>
+                <div className="timeline-content">
+                  <p className="meal">{`${this.state.day.nap}`}</p>
+                </div>
+              </div>
+              <div className="timeline-item is-primary">
+                <div className="timeline-marker is-warning is-icon ">
+                  <i>
+                    <FontAwesomeIcon icon="running" size="lg" />
+                  </i>
+                </div>
+                <div className="timeline-content">
+                  <p className="heading">Afternoon Activity</p>
+                  <p className="morning">{`${
+                    this.state.day.afternoonActivity
+                  }`}</p>
+                </div>
+              </div>
+              <header className="timeline-header">
+                <span className="tag is-large is-primary">
+                  <FontAwesomeIcon icon="clock" size="sm" />
+                  <p class="check-in">{` Check-Out : ${this.state.day.end}`}</p>
+                </span>
+              </header>
             </div>
           </div>
-          <div className="timeline-item is-primary">
-            <div className="timeline-marker is-warning is-icon">
-              <i>
-                <FontAwesomeIcon icon="utensils" size="lg" />
-              </i>
-            </div>
-            <div className="timeline-content">
-              <p className="heading">MEAL</p>
-              <p className="meal">{`${this.state.day.meal}`}</p>
-            </div>
-          </div>
-          <header className="timeline-header">
-            <span className="tag is-info">NAP</span>
-          </header>
-          <div className="timeline-item is-info">
-            <div className="timeline-marker is-info is-icon">
-              <i>
-                <FontAwesomeIcon icon="bed" size="lg" />
-              </i>
-            </div>
-            <div className="timeline-content">
-              <p className="meal">{`${this.state.day.nap}`}</p>
-            </div>
-          </div>
-          <div className="timeline-item is-primary">
-            <div className="timeline-marker is-warning is-icon ">
-              <i>
-                <FontAwesomeIcon icon="running" size="lg" />
-              </i>
-            </div>
-            <div className="timeline-content">
-              <p className="heading">Afternoon Activity</p>
-              <p className="morning">{`${this.state.day.afternoonActivity}`}</p>
-            </div>
-          </div>
-          <header className="timeline-header">
-            <span className="tag is-large is-primary">
-              <FontAwesomeIcon icon="clock" size="sm" />
-              <p class="check-in">{` Check-Out : ${this.state.day.end}`}</p>
-            </span>
-          </header>
-        </div>
+        )}
       </div>
     );
   }

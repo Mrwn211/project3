@@ -73,16 +73,16 @@ class FillDay extends Component {
       });
     });
 
-    const minuter = bulmaCalendar.attach("[class=nap]", {
-      isRange: false,
-      displayMode: "inline",
-      type: "time",
-      timeFormat: "HH:mm"
-    });
-    minuter[0].on("select", datepicker => {
-      console.log("datepicker3", datepicker, datepicker.data.value());
-      this.setState({ nap: +datepicker.data.value().split(":")[0] });
-    });
+    // const minuter = bulmaCalendar.attach("[class=nap]", {
+    //   isRange: false,
+    //   displayMode: "inline",
+    //   type: "time",
+    //   timeFormat: "HH:mm"
+    // });
+    // minuter[0].on("select", datepicker => {
+    //   console.log("datepicker3", datepicker, datepicker.data.value());
+    //   this.setState({ nap: +datepicker.data.value().split(":")[0] });
+    // });
   }
   render() {
     return (
@@ -131,8 +131,13 @@ class FillDay extends Component {
             </span>
             Nap Duration
           </label>
-
-          <input className="input" name="nap" type="time" className="nap" />
+          <input
+            className="input"
+            name="nap"
+            type="text"
+            onChange={this.handleChange}
+          />
+          {/* <input className="input" name="nap" type="time" className="nap" /> */}
         </div>
         <br /> <br />
         <div className="field is-grouped is-grouped-centered">
