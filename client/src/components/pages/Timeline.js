@@ -53,44 +53,68 @@ class Timeline extends Component {
     return (
       <div className="container">
         <div className="datepicker">
-          <form className="" onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <input type="date" className="date" onChange={this.handleChange} />
           </form>
         </div>
         <div className="timeline is-centered">
           <header className="timeline-header">
-            <span className="tag is-medium is-primary">Check-in</span>
+            <span className="tag is-large is-primary">
+              <FontAwesomeIcon icon="clock" size="sm" />
+              <p class="check-in">{` Check-in : ${this.state.day.start}`}</p>
+            </span>
           </header>
           <div className="timeline-item is-primary">
-            <div className="timeline-marker is-primary" />
+            <div className="timeline-marker is-warning is-icon ">
+              <i>
+                <FontAwesomeIcon icon="running" size="lg" />
+              </i>
+            </div>
             <div className="timeline-content">
-              <p className="heading">January 2016</p>
-              <p>Timeline content - Can include any HTML element</p>
+              <p className="heading">Morning Activity</p>
+              <p className="morning">{`${this.state.day.morningActivity}`}</p>
             </div>
           </div>
-          <div className="timeline-item is-warning">
-            <div className="timeline-marker is-warning is-image is-32x32">
-              <img src="http://bulma.io/images/placeholders/32x32.png" />
+          <div className="timeline-item is-primary">
+            <div className="timeline-marker is-warning is-icon">
+              <i>
+                <FontAwesomeIcon icon="utensils" size="lg" />
+              </i>
             </div>
             <div className="timeline-content">
-              <p className="heading">February 2016</p>
-              <p>Timeline content - Can include any HTML element</p>
+              <p className="heading">MEAL</p>
+              <p className="meal">{`${this.state.day.meal}`}</p>
             </div>
           </div>
           <header className="timeline-header">
-            <span className="tag is-primary">2017</span>
+            <span className="tag is-info">NAP</span>
           </header>
-          <div className="timeline-item is-danger">
-            <div className="timeline-marker is-danger is-icon">
-              <i className="fa fa-flag" />
+          <div className="timeline-item is-info">
+            <div className="timeline-marker is-info is-icon">
+              <i>
+                <FontAwesomeIcon icon="bed" size="lg" />
+              </i>
             </div>
             <div className="timeline-content">
-              <p className="heading">March 2017</p>
-              <p>Timeline content - Can include any HTML element</p>
+              <p className="meal">{`${this.state.day.nap}`}</p>
+            </div>
+          </div>
+          <div className="timeline-item is-primary">
+            <div className="timeline-marker is-warning is-icon ">
+              <i>
+                <FontAwesomeIcon icon="running" size="lg" />
+              </i>
+            </div>
+            <div className="timeline-content">
+              <p className="heading">Afternoon Activity</p>
+              <p className="morning">{`${this.state.day.afternoonActivity}`}</p>
             </div>
           </div>
           <header className="timeline-header">
-            <span className="tag is-medium is-primary">Check-Out</span>
+            <span className="tag is-large is-primary">
+              <FontAwesomeIcon icon="clock" size="sm" />
+              <p class="check-in">{` Check-Out : ${this.state.day.end}`}</p>
+            </span>
           </header>
         </div>
       </div>

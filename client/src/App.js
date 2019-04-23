@@ -26,10 +26,23 @@ import {
   faEnvelope,
   faUpload,
   faClock,
-  faSignOutAlt
+  faSignOutAlt,
+  faRunning,
+  faUtensils,
+  faBed
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlusCircle, faUser, faEnvelope, faUpload, faClock, faSignOutAlt);
+library.add(
+  faPlusCircle,
+  faUser,
+  faEnvelope,
+  faUpload,
+  faClock,
+  faSignOutAlt,
+  faRunning,
+  faUtensils,
+  faBed
+);
 
 class App extends Component {
   state = {

@@ -9,6 +9,7 @@ class FillDay extends Component {
     this.state = {
       date: new Date().toISOString().split("T")[0], // date du jour: `AAAA-MM-DD`
       start: "",
+      meal: "",
       end: "",
       morningActivity: "",
       afternoonActivity: "",

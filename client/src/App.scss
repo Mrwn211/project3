@@ -222,4 +222,14 @@ $modal-content-width: 95%;
     text-transform: uppercase;
     padding: 0;
   }
+
+  .check-in {
+    padding-left: 1em;
+  }
+
+  .morning,
+  .meal,
+  .check-in {
+    text-transform: uppercase;
+  }
 }
