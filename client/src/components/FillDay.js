@@ -32,6 +32,7 @@ class FillDay extends Component {
         this.state.start,
         this.state.end,
         this.state.morningActivity,
+        this.state.meal,
         this.state.afternoonActivity,
         this.state.nap
       )

@@ -53,6 +53,22 @@ class KidService extends Component {
     afternoonActivity,
     nap
   ) => {
+    console.log(
+      "date : ",
+      date,
+      "start : ",
+      start,
+      "end : ",
+      end,
+      "morningActivity : ",
+      morningActivity,
+      "meal : ",
+      meal,
+      "afternoonActivity : ",
+      afternoonActivity,
+      "nap : ",
+      nap
+    );
     try {
       return this.service.post(`/fillday/${kid_id}`, {
         date,
@@ -66,22 +82,6 @@ class KidService extends Component {
     } catch (error) {
       console.error(error);
     }
-    // console.log(
-    //   "date : ",
-    //   date,
-    //   "start : ",
-    //   start,
-    //   "end : ",
-    //   end,
-    //   "morningActivity : ",
-    //   morningActivity,
-    //   "meal : ",
-    //   meal,
-    //   "afternoonActivity : ",
-    //   afternoonActivity,
-    //   "nap : ",
-    //   nap
-    // );
   };
 }
 

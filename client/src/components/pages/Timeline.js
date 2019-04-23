@@ -11,6 +11,22 @@ class Timeline extends Component {
       day: {}
     };
     this.service = new KidService();
+    axios
+      .get(
+        `${process.env.REACT_APP_APIURL || ""}/parent/day/${
+          new Date().toISOString().split("T")[0]
+        }`,
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        const day = response.data;
+        this.setState({ day: day });
+      })
+      .catch(err => {
+        this.setState({ day: {} });
+      });
   }
 
   componentDidMount() {
@@ -59,7 +75,7 @@ class Timeline extends Component {
           </form>
         </div>
 
-        {existinsgDay && (
+        {Object.keys(existinsgDay).length && (
           <div>
             <div className="timeline is-centered">
               <header className="timeline-header">
